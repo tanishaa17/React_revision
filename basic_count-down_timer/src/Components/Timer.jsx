@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 
 const Timer = () => {
   const [count, setCount] = useState(15);
-    return (
+
+
+  return (
     <>
       <h2>Timer : {count}</h2>
     </>
