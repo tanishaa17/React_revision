@@ -12,8 +12,6 @@ const Counter = () => {
         <div id={styles.mainDiv}>
             <h1>Counter : {count}</h1>
             <button disabled={count < 1} onClick={handleLess}> - </button>
-
-
             <button onClick={handleAdd}> + </button>
         </div>
     );
