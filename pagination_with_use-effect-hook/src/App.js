@@ -1,12 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import GetPost from "./Components/GetPost";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-     
-    </div>
+    <>
+      <div className="App">
+        <h1>Post the data using UseEffect</h1>
+        <hr />
+      </div>
+      <div id="posts">
+        <GetPost />
+      </div>
+    </>
   );
 }
-
-export default App;
