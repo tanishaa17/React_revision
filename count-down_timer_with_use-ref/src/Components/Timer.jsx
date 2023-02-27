@@ -4,7 +4,13 @@ import styles from './Timer.module.css';
 export default function Timer() {
     const [count, setCount] = useState(20);
     let intervalId = useRef(null);
-    // useEffect(() => { }, []);
+    useEffect(() => {
+        const cleanup = () => {
+            handlePause();
+            console.log(`cleanup called`)
+        }
+        return cleanup;
+    }, []);
     const handleStart = () => {
         // console.log(`Button Clicked`);
         if (intervalId.current !== null) {
@@ -16,7 +22,7 @@ export default function Timer() {
                     clearInterval(intervalId.current);
                     return 0;
                 }
-                // console.log(`Timer is running fine`, Date.now())
+                console.log(`Timer is running fine`, Date.now())
                 return newCount - 1;
             });
         }, 1000);
@@ -29,7 +35,7 @@ export default function Timer() {
     const handleReset = () => {
         // console.log(`Button Clicked`);
         handlePause();
-setCount(20)
+        setCount(20)
     }
 
     return (
