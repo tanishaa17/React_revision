@@ -12,7 +12,7 @@ const createTimerInStrFormat = (valInSecs) => {
     return `${addZeroBefore(hour)}:${addZeroBefore(min)}:${addZeroBefore(sec)}`
 }
 export default function Timer() {
-    const [count, setCount] = useState(3670);
+    const [count, setCount] = useState(3660);
     let intervalId = useRef(null);
     useEffect(() => {
         const cleanup = () => {
