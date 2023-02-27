@@ -1,8 +1,18 @@
 import { useEffect, useRef, useState } from "react"
 import styles from './Timer.module.css';
 
+// function to set a timer in proper format
+const addZeroBefore = (val) => {
+    return val <= 9 ? `0${val}` : val;
+}
+const createTimerInStrFormat = (valInSecs) => {
+    const sec = valInSecs % 60;
+    const min = Math.floor(valInSecs / 60) % 60;
+    const hour = Math.floor(valInSecs / 3600) % 60;
+    return `${addZeroBefore(hour)}:${addZeroBefore(min)}:${addZeroBefore(sec)}`
+}
 export default function Timer() {
-    const [count, setCount] = useState(20);
+    const [count, setCount] = useState(3670);
     let intervalId = useRef(null);
     useEffect(() => {
         const cleanup = () => {
@@ -35,12 +45,12 @@ export default function Timer() {
     const handleReset = () => {
         // console.log(`Button Clicked`);
         handlePause();
-        setCount(20)
+        setCount(0);
     }
 
     return (
         <>
-            <h2>Timer : {count}</h2>
+            <h2>Timer : {createTimerInStrFormat(count)}</h2>
             <button className={styles.btn} onClick={handleStart}>Start</button>
             <button className={styles.btn} onClick={handlePause}>Pause</button>
             <button className={styles.btn} onClick={handleReset}>Reset</button>
