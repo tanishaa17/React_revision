@@ -13,17 +13,14 @@ export default function Timer() {
                     clearInterval(intervalId);
                     return 0;
                 }
-                console.log(`Timer is running fine`)
+                // console.log(`Timer is running fine`)
                 return newCount - 1;
             });
         }, 1000);
     }
     const handleStop = () => {
-        // console.log(`Button Clicked`);
-        // if (newCount <= 1) {
-        clearInterval(intervalId);
-        // return 0;
-        // }
+        console.log(`Button Clicked`);
+
     }
     const handleReset = () => {
         // console.log(`Button Clicked`);
