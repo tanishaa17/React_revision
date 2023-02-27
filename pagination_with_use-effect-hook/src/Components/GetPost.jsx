@@ -14,7 +14,7 @@ const GetPost = () => {
 
             setPosts(data);
 
-            
+
         } catch (error) {
             console.log("Something went wrong");
 
@@ -23,10 +23,18 @@ const GetPost = () => {
     useEffect(() => {
         fetchdata();
     }, []);
-    
+
     return (
         <div>
-           
+            {posts.map((el) => {
+                return (
+                    <div key={el.id}>
+                        <p> Id :- {el.id}</p>
+                        <p> Title :- {el.title}</p>
+                        <p> Status :- {el.completed ? "done" : "pending"}</p>
+                    </div>
+                );
+            })}
         </div>
     );
 };
