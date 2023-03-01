@@ -10,7 +10,6 @@ export const ChangeTheme = ({ btntxt, onClick }) => {
             padding: "1%",
             borderRadius: "25px",
             cursor: "pointer"
-
         }}
             onClick={onClick}
         >
