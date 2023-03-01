@@ -1,7 +1,6 @@
 import { useContext } from "react"
 import { AuthContext } from "../ContextProvider/AuthContextProvider";
 import { ThemeContext } from "../ContextProvider/ThemeContextProvider"
-import { ChangeTheme } from "./ChangeTheme";
 import styles from "./Navbar.module.css"
 export const Navbar = () => {
     const { theme } = useContext(ThemeContext);
@@ -10,7 +9,6 @@ export const Navbar = () => {
 
         <div className={styles.nav} style={{
             border: theme === "dark" ? "2px solid beige" : "2px solid",
-            // display: "flex"
         }}>
 
             <div>
@@ -21,16 +19,19 @@ export const Navbar = () => {
             </div>
 
             <div className={styles.btn}>
-                {/* <ChangeTheme onClick={()=>{}} btntxt={"login"} />
+
+                {/* We can also re-use the button component from changeTheme here-                
+                <ChangeTheme onClick={()=>{}} btntxt={"login"} />
                 <ChangeTheme onClick={()=>{}} btntxt={"logout"} /> */}
-                <button onClick={logIn}
+
+                <button disabled={isAuth} onClick={logIn}
                     style={{
                         background: theme === "light" ? "black" : "beige",
                         color: theme === "light" ? "beige" : "black",
                     }}>
                     login
                 </button>
-                <button onClick={logOut}
+                <button disabled={!isAuth} onClick={logOut}
                     style={{
                         background: theme === "light" ? "black" : "beige",
                         color: theme === "light" ? "beige" : "black",
