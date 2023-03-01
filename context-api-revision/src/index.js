@@ -4,12 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ThemeContextProvider } from './ContextProvider/ThemeContextProvider';
+import { AuthContextProvider } from './ContextProvider/AuthContextProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <ThemeContextProvider>
-    <App />
-  </ThemeContextProvider>
+  <AuthContextProvider>
+    <ThemeContextProvider>
+      <App />
+    </ThemeContextProvider>
+  </AuthContextProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
