@@ -9,7 +9,7 @@ function App() {
   const { theme, toggleTheme } = useContext(ThemeContext);
   return (
     < div className="App" style={{
-      background: theme === "light" ? "skyblue" : "tomato",
+      background: theme === "light" ? "beige" : "black",
       color: theme === "light" ? "black" : "white"
 
     }}>
