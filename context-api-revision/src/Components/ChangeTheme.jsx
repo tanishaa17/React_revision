@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { ThemeContext } from '../ContextProvider/ThemeContextProvider'
 
-export const ChangeTheme = () => {
+export const ChangeTheme = ({ btntxt, onclick }) => {
     const { theme } = useContext(ThemeContext)
     return (
         <button style={{
@@ -10,6 +10,9 @@ export const ChangeTheme = () => {
             padding: "1%",
             borderRadius: "25px"
 
-        }} >Change Theme</button>
+        }}
+            onClick={onclick}
+        >
+            {btntxt}</button>
     )
 }
