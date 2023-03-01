@@ -34,7 +34,7 @@ function createConnection(user) {
                 } at ${new Date().toTimeString()}`;
 
             callback(message);
-        }, 1000);
+        }, 2000);
     }
     function unsubscribe() {
         console.log(`stopped listening to ${user.name}`);

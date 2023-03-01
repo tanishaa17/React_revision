@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import createConnection, { users } from "../Utils/chat";
 import Contacts from "./Contacts";
 
@@ -15,7 +15,22 @@ function ChatApp() {
     // - display all the messages on the UI
     // - when changing user, messages should be reset
 
-
+    useEffect(() => {
+        const { listen, unsubscribe } = createConnection(subscribedTo);
+        listen((message) => {
+            // console.log(message);
+            setMessages((prevMsg) => {
+                return [...prevMsg, message];
+            });
+        });
+        const cleanUp = () => {
+            unsubscribe();
+            console.log(`CleanUp called`);
+            setMessages([]);
+        };
+        return cleanUp;
+    }, [subscribedTo]);
+    // console.log(subscribedTo);
 
     return (
         <div>
@@ -29,7 +44,9 @@ function ChatApp() {
                 onChange={(user) => setSubscribedTo(user)}
             />
             <hr />
-
+            {messages.map((item) => (
+                <li key={Date.now() * Math.random() * 20}>{item}</li>
+            ))}
         </div>
     );
 }
