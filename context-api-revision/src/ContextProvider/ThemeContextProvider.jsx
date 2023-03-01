@@ -8,7 +8,7 @@ export const ThemeContextProvider = (props) => {
         console.log("button is working")
         setTheme(theme === "light" ? "dark" : "light")
     }
-    return < ThemeContext.Provider value={{ theme: theme, toggleTheme: toggleTheme }}>
+    return < ThemeContext.Provider value={{ theme, toggleTheme }}>
         {props.children}
     </ ThemeContext.Provider>
 }
