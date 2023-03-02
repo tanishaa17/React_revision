@@ -25,14 +25,18 @@ export const UserDetails = () => {
     useEffect(() => {
         fetchData(`https://reqres.in/api/users/${users_id}`);
     }, [])
-
-    return loading ? <h1>Loading.....</h1> :
-        err ? <h1>"Something went wrong"</h1> : (
-            <div className={styles.user}>
-                <div> <img src={user.avatar} alt="img" /></div>
-                <p > ID: {user.id}</p>
-                <p >Name: {user.first_name + " " + user.last_name}</p>
-                <p > Email: {user.email}</p><hr />
-            </div>
-        )
+    if (loading) {
+        return <h1>Loading....</h1>
+    }
+    if (err) {
+        return <h1>Something went wrong......Please refresh</h1>
+    }
+    return (
+        <div className={styles.user}>
+            <div> <img src={user.avatar} alt="img" /></div>
+            <p > ID: {user.id}</p>
+            <p >Name: {user.first_name + " " + user.last_name}</p>
+            <p > Email: {user.email}</p><hr />
+        </div>
+    )
 }
