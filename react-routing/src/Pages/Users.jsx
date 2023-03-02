@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import styles from "./Users.module.css"
 
 export const Users = () => {
+    const [page, setPage] = useState(1)
     const [userData, setUserData] = useState([]);
     const [loading, setLoading] = useState(false);
     const [err, setErr] = useState(false);
@@ -24,7 +25,10 @@ export const Users = () => {
         fetchData(`https://reqres.in/api/users`);
         // console.log(userData);
     }, [])
-
+    const handlePages = (val) => {
+        const updatePage = page + val
+        setPage(updatePage);
+    }
 
     return loading ? <h1>Loading.....</h1> :
         err ? <h1>"Something went wrong"</h1> :
@@ -46,6 +50,10 @@ export const Users = () => {
                             </>
                         )
                     })}
+
+                    <button disabled={page <= 1} onClick={() => handlePages(-1)}>Prev</button>
+                    <button disabled>{page}</button>
+                    <button onClick={() => handlePages(1)}>Next</button>
                 </>
             )
 }
