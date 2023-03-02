@@ -1,0 +1,21 @@
+body{
+    background-color: rgb(242, 221, 194);
+}
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-weight: bold;
+    font-size: 20px;
+    border: 2px solid;
+    height: 50px;
+    width: 80%;
+    margin: auto;
+    margin-top: 25px;
+    padding: 1%;
+}
+
+.link {
+    color: black;
+    text-decoration: none;
+}
