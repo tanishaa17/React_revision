@@ -1,5 +1,6 @@
-import { Link, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import { Navbar } from './Components/Navbar';
 import { About } from './Routes/About';
 import { Contacts } from './Routes/Contacts';
 import { Home } from './Routes/Home';
@@ -9,16 +10,7 @@ import { Users } from './Routes/Users';
 function App() {
   return (
     <div className="App">
-
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-around", fontWeight: "bolder", fontSize: "30px" }}>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/contacts">Contacts</Link>
-        <Link to="/login">Login</Link>
-        <Link to="/user">Users</Link>
-
-      </div>
-
+      <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
