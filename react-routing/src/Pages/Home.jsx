@@ -5,7 +5,6 @@ export const Home = () => {
     const { logout, isAuth } = useContext(AuthContext)
     return (
         <>
-            <div>Home</div>
             <button disabled={!isAuth} onClick={logout}>LogOut</button>
         </>
     )
