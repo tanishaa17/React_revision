@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom';
-
+import { PrivateRoute } from "./PrivateRoute"
 import { About } from '../Pages/About';
 import { Contacts } from '../Pages/Contacts';
 import { Home } from '../Pages/Home';
@@ -12,11 +12,30 @@ import { Users } from '../Pages/Users';
 export const AllRoutes = () => {
     return (
         <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/about' element={<About />} />
-            <Route path='/contacts' element={<Contacts />} />
+
+            <Route path='/' element={
+                <PrivateRoute>
+                    <Home />
+                </PrivateRoute>
+            } />
+            <Route path='/about' element={
+                <PrivateRoute>
+                    <About />
+                </PrivateRoute>
+            } />
+            <Route path='/contacts' element={
+                <PrivateRoute>
+                    <Contacts />
+                </PrivateRoute>
+
+            } />
             <Route path='/login' element={<Login />} />
-            <Route path='/users' element={<Users />} />
+            <Route path='/users' element={
+
+                <PrivateRoute>
+                    <Users />
+                </PrivateRoute>
+            } />
             <Route path='/users/:users_id' element={<UserDetails />} />
             <Route path='*' element={<NotFound />} />
 
