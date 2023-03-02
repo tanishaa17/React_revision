@@ -1,7 +1,15 @@
-span{
+p {
     font-weight: bold;
 }
-.user{
+
+.user {
     width: 40%;
-   margin: auto;
+    margin: auto;
+}
+
+h2 {
+    color: rgb(20, 80, 141);
+    font-weight: bold;
+    font-size: 35px;
+    text-decoration: underline;
 }

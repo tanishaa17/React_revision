@@ -22,7 +22,7 @@ export const Users = () => {
     }
     useEffect(() => {
         fetchData(`https://reqres.in/api/users`);
-        // console.log(userData);
+        console.log(userData);
     }, [])
 
     return loading ? <h1>Loading.....</h1> :
@@ -30,11 +30,12 @@ export const Users = () => {
             (
                 <>
                     <h2 >User data</h2>
-                    {userData.map(({ avatar, first_name, last_name }) => {
+                    {userData.map(({ avatar, first_name, last_name, id, email }) => {
                         return (
-                            <div className={styles.user}>
+                            <div key={id} className={styles.user}>
                                 <div> <img src={avatar} alt="img" /></div>
-                                <span >{first_name + " " + last_name}</span> <hr />
+                                <p >Name: {first_name + " " + last_name}</p>
+                                <p > Email: {email}</p><hr />
                             </div>
                         )
                     })}
