@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react'
+import { Link, Navigate } from 'react-router-dom';
+import { AuthContext } from '../ContextProvider/AuthContextProvider';
 import styles from "./Users.module.css"
 
 export const Users = () => {
     const [userData, setUserData] = useState([]);
     const [loading, setLoading] = useState(false);
     const [err, setErr] = useState(false);
-
+    const { isAuth } = useContext(AuthContext);
 
     const fetchData = async (url) => {
         try {
@@ -27,6 +28,9 @@ export const Users = () => {
         // console.log(userData);
     }, [])
 
+    if (!isAuth) {
+        return <Navigate to="/login" />
+    }
     return loading ? <h1>Loading.....</h1> :
         err ? <h1>"Something went wrong"</h1> :
             (
