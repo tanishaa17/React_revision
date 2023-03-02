@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import styles from "./UserDetails.module.css"
 
 export const UserDetails = () => {
@@ -7,6 +7,7 @@ export const UserDetails = () => {
     const [user, setUser] = useState([]);
     const [loading, setLoading] = useState(false);
     const [err, setErr] = useState(false);
+    const navigate = useNavigate();
 
 
     const fetchData = async (url) => {
@@ -32,11 +33,14 @@ export const UserDetails = () => {
         return <h1>Something went wrong......Please refresh</h1>
     }
     return (
-        <div className={styles.user}>
-            <div> <img src={user.avatar} alt="img" /></div>
-            <p > ID: {user.id}</p>
-            <p >Name: {user.first_name + " " + user.last_name}</p>
-            <p > Email: {user.email}</p><hr />
-        </div>
+        <>
+            <div className={styles.user}>
+                <div> <img src={user.avatar} alt="img" /></div>
+                <p > ID: {user.id}</p>
+                <p >Name: {user.first_name + " " + user.last_name}</p>
+                <p > Email: {user.email}</p><hr /> <br />
+                <button onClick={() => navigate("/users")}>Go Back</button>
+            </div>
+        </>
     )
 }

@@ -7,8 +7,10 @@ button {
   border-radius: 25px;
   margin-top: 10px;
   cursor: pointer;
-  margin: 5px;
+  margin: 10px;
   font-weight: bold;
+  background-color: rgb(239, 224, 204);
+  ;
 }
 
 button:hover {
