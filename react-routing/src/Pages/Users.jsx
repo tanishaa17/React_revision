@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 import styles from "./Users.module.css"
+
 export const Users = () => {
     const [userData, setUserData] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -22,7 +24,7 @@ export const Users = () => {
     }
     useEffect(() => {
         fetchData(`https://reqres.in/api/users`);
-        console.log(userData);
+        // console.log(userData);
     }, [])
 
     return loading ? <h1>Loading.....</h1> :
@@ -35,7 +37,8 @@ export const Users = () => {
                             <div key={id} className={styles.user}>
                                 <div> <img src={avatar} alt="img" /></div>
                                 <p >Name: {first_name + " " + last_name}</p>
-                                <p > Email: {email}</p><hr />
+                                <p > Email: {email}</p>
+                                <Link to={`/users/${id}`}>More Info</Link><hr />
                             </div>
                         )
                     })}

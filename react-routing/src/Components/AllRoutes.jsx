@@ -5,6 +5,7 @@ import { About } from '../Pages/About';
 import { Contacts } from '../Pages/Contacts';
 import { Home } from '../Pages/Home';
 import { Login } from '../Pages/Login';
+import { UserDetails } from '../Pages/UserDetails';
 import { Users } from '../Pages/Users';
 
 export const AllRoutes = () => {
@@ -14,7 +15,9 @@ export const AllRoutes = () => {
             <Route path='/about' element={<About />} />
             <Route path='/contacts' element={<Contacts />} />
             <Route path='/login' element={<Login />} />
-            <Route path='/user' element={<Users />} />
+            <Route path='/users' element={<Users />} />
+            <Route path='/users/:users_id' element={<UserDetails />} />
+
         </Routes>
     )
 }
