@@ -24,7 +24,9 @@ export const UserDetails = () => {
         }
     }
     useEffect(() => {
+        setLoading(true);
         fetchData(`https://reqres.in/api/users/${users_id}`);
+        setLoading(false);
     }, [])
     if (loading) {
         return <h1>Loading....</h1>
