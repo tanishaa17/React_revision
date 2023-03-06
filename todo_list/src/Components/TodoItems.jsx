@@ -1,7 +1,12 @@
-import React from 'react'
-
-export const TodoItems = () => {
+const TodoItems = ({ el }) => {
     return (
-        <div>TodoItems</div>
-    )
-}
+        <>
+            <div>
+                {el.title} - {el.status ? "Completed" : "Mark as Completed"}
+            </div>
+            <button>Completed</button>
+            <button>Remove</button>
+        </>
+    );
+};
+export default TodoItems;
