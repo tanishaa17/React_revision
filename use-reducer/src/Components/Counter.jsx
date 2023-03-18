@@ -18,7 +18,7 @@ export const Counter = () => {
         <div id='mainDiv'>
             <h1>Count: {count}</h1>
             <button disabled={count===0} onClick={() => dispatch({ type: "DEC", payload: 1 })}>DEC</button>
-            <button onClick={() => dispatch({ type: "INC", payload: 1 })}>DEC</button>
+            <button onClick={() => dispatch({ type: "INC", payload: 1 })}>INC</button>
         </div>
     )
 }
