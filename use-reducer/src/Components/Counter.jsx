@@ -15,7 +15,7 @@ const reducerFunction = ((state, { type, payload }) => {
 export const Counter = () => {
     const [count, dispatch] = useReducer(reducerFunction, 0)
     return (
-        <div>
+        <div id='mainDiv'>
             <h1>Count: {count}</h1>
             <button onClick={() => dispatch({ type: "DEC", payload: 1 })}>DEC</button>
             <button onClick={() => dispatch({ type: "INC", payload: 1 })}>DEC</button>
