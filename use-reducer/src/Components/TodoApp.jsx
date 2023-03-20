@@ -10,8 +10,10 @@ const todoReducerFunc = ((state, { type, payload }) => {
         }
         case "TOGGLE": {
             const newState = state.map((todo) => {
-                if (todo.id === payload) todo.isCompconsted = !todo.isCompleted;
-                return { ...todo }
+                if (todo.id === payload) {
+                    todo.isCompleted = !todo.isCompleted;
+                }
+                return todo
             })
             return newState
         }
@@ -47,9 +49,12 @@ export const TodoApp = () => {
 
             {todos.map((todo) => (
                 <div key={todo.id}>
+
                     <span>{`${todo.value} :-`}</span>
 
-                    <button onClick={() => dispatch({ type: "TOGGLE", payload: todo.id })}>{todo.isCompleted ? "Completed" : "Mark as completed"}</button>
+                    <button onClick={() => dispatch({ type: "TOGGLE", payload: todo.id })}>
+                        {todo.isCompleted ? "Completed" : "Mark as completed"}                        
+                    </button>
 
                     <button onClick={() => dispatch({ type: "DELETE", payload: todo.id })}>Delete</button>
                 </div>
