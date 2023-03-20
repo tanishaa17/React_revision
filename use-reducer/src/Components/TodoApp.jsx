@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from 'react'
+import React, { useReducer } from 'react'
 import { TodoInput } from './TodoInput'
 
 
@@ -43,14 +43,15 @@ export const TodoApp = () => {
     return (
         <div>
             <h1>Todo App</h1>
-            <TodoInput dispatch={handleAdd} />
+            <TodoInput handleAdd={(value) => dispatch({ type: "ADD", payload: value })} />
 
             {todos.map((todo) => (
                 <div key={todo.id}>
                     <span>{`${todo.value} :-`}</span>
-                    <button onClick={() => toggleStatus(todo.id)}>{todo.isCompleted ? "Completed" : "Mark as completed"}</button>
 
-                    <button onClick={() => handleDelete(todo.id)}>Delete</button>
+                    <button onClick={() => dispatch({ type: "TOGGLE", payload: todo.id })}>{todo.isCompleted ? "Completed" : "Mark as completed"}</button>
+
+                    <button onClick={() => dispatch({ type: "DELETE", payload: todo.id })}>Delete</button>
                 </div>
             ))}
         </div>
