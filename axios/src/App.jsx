@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useEffect } from 'react'
 import axios from 'axios';
+import { Todo } from './Components/TodoList/Todo';
 
 
 export const App = () => {
@@ -14,13 +15,13 @@ export const App = () => {
     //   .then((res) => console.log(res))
     //   .catch((err) => console.log(err));
 
-    axios.post(`https://jsonplaceholder.typicode.com/users`, {
-      userId: 5,
-      title: "anything",
-      body: "Something about anything"
-    }).then((res) => console.log(res))
+  //   axios.post(`https://jsonplaceholder.typicode.com/users`, {
+  //     userId: 5,
+  //     title: "anything",
+  //     body: "Something about anything"
+  //   }).then((res) => console.log(res))
   }, [])
   return (
-    <div>App</div>
+    <Todo />
   )
 }
