@@ -42,60 +42,54 @@ export const Users = () => {
     }, [])
 
 
-    // MAPPING THE USER DATA
+    // MAPPING THE USER DATA IN TABULAR FORM
     return (
-        <TableContainer>
-            <Table variant='striped' colorScheme='teal'>
-                {/* <TableCaption>USER DATA</TableCaption> */}
-                < Thead >
-                    <Tr>
-                        <Th >ID</Th>
-                        <Th>username</Th>
-                        <Th >name</Th>
-                        <Th>Email</Th>
-                        <Th >Phone No</Th>
-                    </Tr>
-                </Thead>
+        <div>
+            <TableContainer>
+                <Table variant='striped' colorScheme='teal' maxWidth="75%" margin="auto" border="1px solid grey">
+                    {/* <TableCaption>USER DATA</TableCaption> */}
+                    < Thead >
+                        <Tr>
+                            <Th >ID</Th>
+                            <Th>username</Th>
+                            <Th >name</Th>
+                            <Th>Email</Th>
+                            <Th >Phone No</Th>
+                        </Tr>
+                    </Thead>
 
-                {data.length !== 0 ?
+                    {data.length !== 0 ?
 
-                    data.map((elem) => {
-                        return (
+                        data.map((elem) => {
+                            return (
 
-                            <Tbody >
+                                <Tbody >
 
-                                <Tr>
-                                    <Td>{elem.id}</Td>
-                                    <Td>{elem.name}</Td>
-                                    <Td >{elem.username}</Td>
-                                    <Td>{elem.email}</Td>
-                                    <Td>{elem.phone}</Td>
-                                </Tr>
-                                <Tr>
-                                    <Td>{elem.id}</Td>
-                                    <Td>{elem.name}</Td>
-                                    <Td >{elem.username}</Td>
-                                    <Td>{elem.email}</Td>
-                                    <Td>{elem.phone}</Td>
-                                </Tr>
+                                    <Tr>
+                                        <Td>{elem.id}</Td>
+                                        <Td>{elem.name}</Td>
+                                        <Td >{elem.username}</Td>
+                                        <Td>{elem.email}</Td>
+                                        <Td>{elem.phone}</Td>
+                                    </Tr>
+                                    <Tr>
+                                        <Td>{elem.id}</Td>
+                                        <Td>{elem.name}</Td>
+                                        <Td >{elem.username}</Td>
+                                        <Td>{elem.email}</Td>
+                                        <Td>{elem.phone}</Td>
+                                    </Tr>
 
 
-                            </Tbody>
+                                </Tbody>
 
-                        )
-                    }) : "No data Available, please add a user"
-                }
-            </Table>
-        </TableContainer >
+                            )
+                        }) : "No data Available, please add a user"
+                    }
+                </Table>
+            </TableContainer >
+        </div>
     )
 }
 
 
-{/* <div key={elem.id}>
-    <p>{`ID : ${elem.id}`}</p>
-    <p>{`Name : ${elem.name}`}</p>
-    <p>{`Username : ${elem.username}`}</p>
-    <p>{`Email : ${elem.email}`}</p>
-    <p>{`Phone No : ${elem.phone}`}</p>
-    <hr />
-</div> */}
