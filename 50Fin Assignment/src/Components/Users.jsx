@@ -1,6 +1,17 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
+import {
+    Table,
+    Thead,
+    Tbody,
+    Tr,
+    Th,
+    Td,
+    TableCaption,
+    TableContainer,
+} from '@chakra-ui/react'
+
 // FETCHED THE USERS
 const fetchUser = async () => {
     try {
@@ -33,19 +44,58 @@ export const Users = () => {
 
     // MAPPING THE USER DATA
     return (
-        <div>
-            {data.length === 0 ? "No data Available, please add a user" :
-                data.map((elem) => {
-                    return (
-                        <div key={elem.id}>
-                            <p>{`ID : ${elem.id}`}</p>
-                            <p>{`Name : ${elem.name}`}</p>
-                            <p>{`Username : ${elem.username}`}</p>
-                            <p>{`Email : ${elem.email}`}</p>
-                            <p>{`Phone No : ${elem.phone}`}</p>
-                        </div>
-                    )
-                })}
-        </div>
+        <TableContainer>
+            <Table variant='striped' colorScheme='teal'>
+                {/* <TableCaption>USER DATA</TableCaption> */}
+                < Thead >
+                    <Tr>
+                        <Th >ID</Th>
+                        <Th>username</Th>
+                        <Th >name</Th>
+                        <Th>Email</Th>
+                        <Th >Phone No</Th>
+                    </Tr>
+                </Thead>
+
+                {data.length !== 0 ?
+
+                    data.map((elem) => {
+                        return (
+
+                            <Tbody >
+
+                                <Tr>
+                                    <Td>{elem.id}</Td>
+                                    <Td>{elem.name}</Td>
+                                    <Td >{elem.username}</Td>
+                                    <Td>{elem.email}</Td>
+                                    <Td>{elem.phone}</Td>
+                                </Tr>
+                                <Tr>
+                                    <Td>{elem.id}</Td>
+                                    <Td>{elem.name}</Td>
+                                    <Td >{elem.username}</Td>
+                                    <Td>{elem.email}</Td>
+                                    <Td>{elem.phone}</Td>
+                                </Tr>
+
+
+                            </Tbody>
+
+                        )
+                    }) : "No data Available, please add a user"
+                }
+            </Table>
+        </TableContainer >
     )
 }
+
+
+{/* <div key={elem.id}>
+    <p>{`ID : ${elem.id}`}</p>
+    <p>{`Name : ${elem.name}`}</p>
+    <p>{`Username : ${elem.username}`}</p>
+    <p>{`Email : ${elem.email}`}</p>
+    <p>{`Phone No : ${elem.phone}`}</p>
+    <hr />
+</div> */}
