@@ -8,7 +8,6 @@ import {
     Tr,
     Th,
     Td,
-    TableCaption,
     TableContainer,
 } from '@chakra-ui/react'
 
@@ -24,7 +23,9 @@ const fetchUser = async () => {
 }
 
 export const Users = () => {
-    const [data, setData] = useState([]);
+    let userData = JSON.parse(localStorage.getItem("userData")) || [];
+
+    const [data, setData] = useState(userData);
 
     // GOT THE USER DATA
     const getData = async () => {
@@ -47,11 +48,10 @@ export const Users = () => {
         <div>
             <TableContainer>
                 <Table variant='striped' colorScheme='teal' maxWidth="75%" margin="auto" border="1px solid grey">
-                    {/* <TableCaption>USER DATA</TableCaption> */}
+
                     < Thead >
                         <Tr>
                             <Th >ID</Th>
-                            <Th>username</Th>
                             <Th >name</Th>
                             <Th>Email</Th>
                             <Th >Phone No</Th>
@@ -65,17 +65,15 @@ export const Users = () => {
 
                                 <Tbody >
 
-                                    <Tr>
+                                    <Tr key={elem.id}>
                                         <Td>{elem.id}</Td>
                                         <Td>{elem.name}</Td>
-                                        <Td >{elem.username}</Td>
                                         <Td>{elem.email}</Td>
                                         <Td>{elem.phone}</Td>
                                     </Tr>
                                     <Tr>
                                         <Td>{elem.id}</Td>
                                         <Td>{elem.name}</Td>
-                                        <Td >{elem.username}</Td>
                                         <Td>{elem.email}</Td>
                                         <Td>{elem.phone}</Td>
                                     </Tr>
@@ -84,7 +82,7 @@ export const Users = () => {
                                 </Tbody>
 
                             )
-                        }) : "No data Available, please add a user"
+                        }) : "No data Available, please add a user...."
                     }
                 </Table>
             </TableContainer >
