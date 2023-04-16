@@ -33,6 +33,19 @@ export const Users = () => {
 
     // MAPPING THE USER DATA
     return (
-        <div>Users</div>
+        <div>
+            {data.length === 0 ? "No data Available, please add a user" :
+                data.map((elem) => {
+                    return (
+                        <div key={elem.id}>
+                            <p>{`ID : ${elem.id}`}</p>
+                            <p>{`Name : ${elem.name}`}</p>
+                            <p>{`Username : ${elem.username}`}</p>
+                            <p>{`Email : ${elem.email}`}</p>
+                            <p>{`Phone No : ${elem.phone}`}</p>
+                        </div>
+                    )
+                })}
+        </div>
     )
 }
